@@ -7,48 +7,68 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../src/fontawesomeiconfinder.css">
         <link rel="stylesheet" href="demo.css">
-        <script type="text/javascript" src="loader.js"></script>
+        <script type="text/javascript" src="../src/fontawesomeiconfinder.loader.js"></script>
         <script type="text/javascript" src="../src/fontawesomeiconfinder.trie.js"></script>
         <script type="text/javascript" src="../src/fontawesomeiconfinder.manager.js"></script>
     </head>
     <body class="layout">
         <div id="log" class="log"></div>
-        <div id="container" class="inputs">
-            <input type="file" id="fileInput">
-            <button value="loadIcons" id="loadButton">Load Icons</button>
-            <input class="iconSearch" type="text">
+        <div class="inputs">
+            <label for="search">Search</label>
+            <input name="search" class="iconSearch" type="text">
             <div class="selectedLabel"></div>
-            <div class="result icons" style="height: 100%; overflow-y: auto;"></div>
+        </div>
+
+        <div id="container" class="icons">
+            <div class="result" style="height: 100%; overflow-y: auto;"></div>
         </div>
 
         <script type="text/javascript">
-            // hook console.log 
-            console.olog = console.log;
-            console.log = (message) => {
-                var div = document.createElement('div');
-                div.innerHTML = message;
-                document.getElementById('log').appendChild(div);
-                console.olog(message);
-            };
-
-
-            document.getElementById('loadButton').addEventListener('click', (e) => {
-                // This code really just mimicks the controller which umbraco uses
-
+ 
+            function fireWhenReady(fn) {
+                if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+                    fn();
+                } else {
+                    document.addEventListener('DOMContentLoaded', fn);
+                }
+            }
+            
+            fireWhenReady(() => {
+                // hijack console.log 
+                console.olog = console.log;
+                console.log = (message) => {
+                    var div = document.createElement('div');
+                    div.innerHTML = message;
+                    document.getElementById('log').appendChild(div);
+                    console.olog(message);
+                };
+                
+                console.log('----------------- *** WELCOME *** --------------------');
+                console.log('Welcome to the Font Awesome Icon Finder Demo.');
+                console.log('This console will log out information about the search performance.');
+                console.log('To get started, type something in the serarch field and notice how the icons are filterd');
+                console.log('If you press enter the search is performed on the entire word, not just refined on the last letter you typed');
+                console.log('Click on one of the icons to see it\'s data displayed next to the search button. It is this data which will be persisted to the umbraco database');
+                console.log('------------------------------------------------------');
+                const url = 'https://raw.githubusercontent.com/RobbieLD/FontAwesomeIconFinder/master/src/icons.json';
+                
                 // Create the manager
-                var container = document.getElementById('container');
-                var manager = new Manager(container);
-
+                const container = document.getElementById('container');
+                const manager = new Manager(container);
+                
                 // Hook up the key event
                 document.getElementsByClassName('iconSearch')[0].addEventListener('keyup', (e) => {
                     manager.handleKeyUp(e);
                 });
                 
+                console.log('Starting icon loading from ' + url);
+
                 // Setup the controls
                 manager.setup((value) => {
                     document.getElementsByClassName('selectedLabel')[0].innerHTML = value;
-                });
+                }, url);
             });
+
         </script>
     </body>
 </html>
