@@ -8,7 +8,8 @@ Using this property editor is quite simple. Simply add it to a document type in 
 ## Upgrading
 To upgrad the icons it's using to the very latest icons from Font Awesome simply do the following. The current version of the font awesome icons is v5.5.0. 
 1. Download the icon pack from [Font Awesome](https://fontawesome.com/) for the web and extract the files. 
-2. Replace the [icons.json](src/icons.json) in this plugin (wich will be stored in \App_Plugins\FontAwesomeIconFinder\) with the [icons.json](src/icons.json) from the Font Awesome download.
+2. Replace the [icons.json](src/icons.json) in this plugin (wich will be stored in \App_Plugins\FontAwesomeIconFinder\) with the icons.json from the Font Awesome download.
+
 ![json file](https://github.com/RobbieLD/FontAwesomeIconFinder/blob/master/docs/install.PNG)
 
 ## Trouble shooting
