@@ -6,10 +6,10 @@ Font Awesome Icon Finder is an umbraco property editor which integrates Font Awe
 Using this property editor is quite simple. Simply add it to a document type in umbraco and the try editing the property in the back office. You can type in the search box to refine the icons options or press enter to search from the start again. The value persisted to the umbraco database is a string (which is also displayed in the property editor to the right of the search box) containing the css class which needs to be applied to an element (usually a `<i>`) to make it dispay the selected icon. Clicking on an icon in the result view changes the selected icon.
 
 ## Upgrading
-To upgrad the icons it's using to the very latest icons from Font Awesome simply do the following. 
+To upgrad the icons it's using to the very latest icons from Font Awesome simply do the following. The current version of the font awesome icons is v5.5.0. 
 1. Download the icon pack from [Font Awesome](https://fontawesome.com/) for the web and extract the files. 
-2. Replace the [icons.json](src/icons.json) in this plugin (wich will be stored in \App_Plugins\FontAwesomeIconFinder\) with the icons.json from the Font Awesome download.
-![icons.json](https://github.com/RobbieLD/FontAwesomeIconFinder/blob/master/docs/install.PNG)
+2. Replace the [icons.json](src/icons.json) in this plugin (wich will be stored in \App_Plugins\FontAwesomeIconFinder\) with the [icons.json](src/icons.json) from the Font Awesome download.
+![json file](https://github.com/RobbieLD/FontAwesomeIconFinder/blob/master/docs/install.PNG)
 
 ## Trouble shooting
 There are a couple of JavaScript methods in the code which are useful should you encounter an issue. The [fontawesomeiconfinder.manager.js](src/fontawesomeiconfinder.manager.js) contains a public method `dumpTrie()` which prints a json representation of the search trie the code has consutrcted from the icons.json file. 
