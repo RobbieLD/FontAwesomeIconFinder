@@ -2,7 +2,7 @@
 FontAwesomeIconFinder (faif) is an umbraco property editor which integrates Font Awesome icons into the Umbraco back office. It provides a searchable icon grid which uses fast and eccicient trie sorting the filter the icons in real time. It is also user upgradable which allows it to use the latest versions of the icons.
 
 ## Usage
-Using this property editor is quite simple. Simply add it to a document type in umbraco and the try editing the property in the back office. You can type in the search box to refine the icons options or press enter to search from the start again. The value persisted to the umbraco database is a string (which is also displayed in the property editor to the right of the search box) containing the css class which needs to be applied to an element (usually a <i>) to make it dispay the selected icon. Clicking on an icon in the result view changes the selected icon.
+Using this property editor is quite simple. Simply add it to a document type in umbraco and the try editing the property in the back office. You can type in the search box to refine the icons options or press enter to search from the start again. The value persisted to the umbraco database is a string (which is also displayed in the property editor to the right of the search box) containing the css class which needs to be applied to an element (usually a `<i>`) to make it dispay the selected icon. Clicking on an icon in the result view changes the selected icon.
 
 ## Upgrading
 To upgrad the icons it's using to the very latest icons from Font Awesome simply do the following. 
