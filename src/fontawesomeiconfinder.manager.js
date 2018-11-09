@@ -82,8 +82,8 @@ Manager.prototype = (function () {
         }
     }
 
-    function setup(selectedCallback) {
-        loader.load('/App_Plugins/FontAwesomeIconFinder/icons.json')
+    function setup(selectedCallback, url) {
+        loader.load(url)
             .then((response) => {
                 _loadIcons(response, selectedCallback, this.container, this.trie);
             }).catch((error) => {

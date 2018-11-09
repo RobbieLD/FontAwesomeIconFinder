@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Font Awesome Icon Finder Demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../src/fontawesomeiconfinder.css">
+        <link rel="stylesheet" href="demo.css">
+        <script type="text/javascript" src="loader.js"></script>
+        <script type="text/javascript" src="../src/fontawesomeiconfinder.trie.js"></script>
+        <script type="text/javascript" src="../src/fontawesomeiconfinder.manager.js"></script>
+    </head>
+    <body class="layout">
+        <div id="log" class="log"></div>
+        <div id="container" class="inputs">
+            <input type="file" id="fileInput">
+            <button value="loadIcons" id="loadButton">Load Icons</button>
+            <input class="iconSearch" type="text">
+            <div class="selectedLabel"></div>
+            <div class="result icons" style="height: 100%; overflow-y: auto;"></div>
+        </div>
+
+        <script type="text/javascript">
+            // hook console.log 
+            console.olog = console.log;
+            console.log = (message) => {
+                var div = document.createElement('div');
+                div.innerHTML = message;
+                document.getElementById('log').appendChild(div);
+                console.olog(message);
+            };
+
+
+            document.getElementById('loadButton').addEventListener('click', (e) => {
+                // This code really just mimicks the controller which umbraco uses
+
+                // Create the manager
+                var container = document.getElementById('container');
+                var manager = new Manager(container);
+
+                // Hook up the key event
+                document.getElementsByClassName('iconSearch')[0].addEventListener('keyup', (e) => {
+                    manager.handleKeyUp(e);
+                });
+                
+                // Setup the controls
+                manager.setup((value) => {
+                    document.getElementsByClassName('selectedLabel')[0].innerHTML = value;
+                });
+            });
+        </script>
+    </body>
+</html>
