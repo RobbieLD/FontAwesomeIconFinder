@@ -3,7 +3,7 @@ Font Awesome Icon Finder is an umbraco property editor which integrates Font Awe
 ![Screen Shot](https://github.com/RobbieLD/FontAwesomeIconFinder/blob/master/docs/screen_shot.PNG)
 
 ## Demo
-For a live demo of this (hosted right out of this git hub repository have a look [here](http://htmlpreview.github.io/?https://github.com/RobbieLD/FontAwesomeIconFinder/blob/master/demo/index.html).
+For a live demo have a look [here](http://htmlpreview.github.io/?https://github.com/RobbieLD/FontAwesomeIconFinder/blob/master/demo/index.html).
 
 ## Usage
 Using this property editor is quite simple. Simply add it to a document type in umbraco and the try editing the property in the back office. You can type in the search box to refine the icons options or press enter to search from the start again. The value persisted to the umbraco database is a string (which is also displayed in the property editor to the right of the search box) containing the css class which needs to be applied to an element (usually a `<i>`) to make it dispay the selected icon. Clicking on an icon in the result view changes the selected icon.
