@@ -31,11 +31,6 @@ body {
     color: white;
 }
 
-.input input {
-    padding: 1rem;
-}
-
 .icons {
     grid-area: icons;
-    padding: 1rem;
 }

@@ -8,7 +8,7 @@ Trie.prototype = (function () {
     class Node {
         constructor(text) {
             this.text = text;
-            this.children = null;
+            this.children = {};
             this.parent = null;
             this.icons = [];
             this.addWord = _nodeAddWord;
@@ -162,15 +162,8 @@ Trie.prototype = (function () {
 
     function refine(key) {
         var t0 = performance.now();
-        var nextNode = null;
-
-        if (key === 'backspace') {
-            nextNode = this.currentNode.parent;
-        }
-        else {
-            nextNode = (this.currentNode || this.root).children[key];
-        }
-        
+        var nextNode = (this.currentNode || this.root).children[key];
+                
         if(nextNode) {
             // We've found a valid child node
             this.currentNode = nextNode;
@@ -199,6 +192,8 @@ Trie.prototype = (function () {
         this.root.findLeaves(_hide);       
 
         if (!word) {
+            // Reset the current not
+            this.currentNode = null;
             this.root.findLeaves(_show);
         }
         else {

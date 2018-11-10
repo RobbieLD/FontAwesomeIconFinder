@@ -38,12 +38,16 @@ Manager.prototype = (function () {
             iconElement.dataset.class = _styles[icon.styles[0]] + " fa-" + key;
 
             iconElement.addEventListener('click', (e) => {
-                if (e.srcElement.nodeName === 'path') {
-                    selectedCallback(e.srcElement.parentElement.dataset.class);
+                var iconClass = '';
+                if (e.target.nodeName === 'path') {
+                    iconClass = e.target.parentElement.dataset.class;
                 }
                 else {
-                    selectedCallback(e.srcElement.dataset.class);
+                    iconClass = e.target.dataset.class;
                 }
+
+                selectedCallback(iconClass);
+                console.log("Icon selected: " + iconClass);
             });
 
             containerElement.appendChild(iconElement);
@@ -66,17 +70,13 @@ Manager.prototype = (function () {
     function handleKeyUp(e) {
         var key = e.key.toLowerCase();
 
-        // Enter or delete
-        if (key === "enter" || key === "delete") {
+        // Enter, delete or backspace we need to do a full filter of the trie
+        if (key === "enter" || key === "delete" || key === "backspace") {
             this.trie.filter(e.target.value);
         }
         else {
             
-            var isLetter = (key >= "a" && key <= "z") && key.length === 1;
-            var isNumber = (key >= "0" && key <= "9") && key.length === 1;
-            var isBackspace = key === "backspace";
-
-            if (isBackspace || isNumber || isLetter) {
+            if (key.length === 1) {
                 this.trie.refine(key);
             }
         }
