@@ -1,0 +1,18 @@
+{
+  "name": "font-awesome-icon-finder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fontawesomeiconfinder.controller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist --copy-files"
+  },
+  "author": "rdavis",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5"
+  },
+  "dependencies": {}
+}

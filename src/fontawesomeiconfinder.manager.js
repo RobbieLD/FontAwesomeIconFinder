@@ -83,9 +83,9 @@ Manager.prototype = (function () {
     }
 
     function setup(selectedCallback, url) {
-        loader.load(url)
-            .then((response) => {
-                _loadIcons(response, selectedCallback, this.container, this.trie);
+        fetch(url).then(response => response.json())
+            .then((json) => {
+                _loadIcons(json, selectedCallback, this.container, this.trie);
             }).catch((error) => {
                 console.error(error);
             });

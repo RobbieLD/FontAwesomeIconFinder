@@ -5,11 +5,10 @@
         <title>Font Awesome Icon Finder Demo</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../src/fontawesomeiconfinder.css">
+        <link rel="stylesheet" href="../dist/fontawesomeiconfinder.css">
         <link rel="stylesheet" href="demo.css">
-        <script type="text/javascript" src="../src/fontawesomeiconfinder.loader.js"></script>
-        <script type="text/javascript" src="../src/fontawesomeiconfinder.trie.js"></script>
-        <script type="text/javascript" src="../src/fontawesomeiconfinder.manager.js"></script>
+        <script type="text/javascript" src="../dist/fontawesomeiconfinder.trie.js"></script>
+        <script type="text/javascript" src="../dist/fontawesomeiconfinder.manager.js"></script>
     </head>
     <body class="layout">
         <div id="log" class="log"></div>
@@ -57,14 +56,14 @@
                 const manager = new Manager(container);
                 
                 // Hook up the key event
-                document.getElementsByClassName('iconSearch')[0].addEventListener('keyup', (e) => {
+                document.getElementsByClassName('iconSearch')[0].addEventListener('keyup', function(e) {
                     manager.handleKeyUp(e);
                 });
                 
                 console.log('Starting icon loading from ' + url);
 
                 // Setup the controls
-                manager.setup((value) => {
+                manager.setup(function(value) {
                     document.getElementsByClassName('selectedLabel')[0].innerHTML = value;
                 }, url);
             });
