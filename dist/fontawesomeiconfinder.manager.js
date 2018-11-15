@@ -16,10 +16,9 @@ Manager.prototype = function () {
   }; // Private Methods
 
   function _createIconNode(html) {
-    var template = document.createElement('template');
-    html = html.trim();
-    template.innerHTML = html;
-    return template.content.firstChild;
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(html, "image/svg+xml");
+    return doc.firstElementChild;
   }
 
   function _loadIcons(icons, selectedCallback, parentElement, trie) {
@@ -31,9 +30,9 @@ Manager.prototype = function () {
     for (var key in icons) {
       iconCount++;
       var icon = icons[key];
-      var html = icon.svg[icon.styles[0]].raw;
+      var rawHtml = icon.svg[icon.styles[0]].raw;
 
-      var iconElement = _createIconNode(html); // set the icon data class 
+      var iconElement = _createIconNode(rawHtml); // set the icon data class 
 
 
       iconElement.dataset.class = _styles[icon.styles[0]] + " fa-" + key;
@@ -83,13 +82,18 @@ Manager.prototype = function () {
   function setup(selectedCallback, url) {
     var _this = this;
 
-    fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      _loadIcons(json, selectedCallback, _this.container, _this.trie);
-    }).catch(function (error) {
-      console.error(error);
-    });
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var json = JSON.parse(xmlhttp.responseText);
+
+        _loadIcons(json, selectedCallback, _this.container, _this.trie);
+      }
+    };
+
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
   }
 
   return {
