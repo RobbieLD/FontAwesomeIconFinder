@@ -19,7 +19,7 @@ Manager.prototype = (function () {
     function _createIconNode(html) {
         var parser = new DOMParser();
         var doc = parser.parseFromString(html, "image/svg+xml");
-        return doc.firstElementChild;
+        return doc.firstChild;
     }
 
     function _loadIcons(icons, selectedCallback, parentElement, trie) {
@@ -35,15 +35,15 @@ Manager.prototype = (function () {
             var iconElement = _createIconNode(rawHtml);
 
             // set the icon data class 
-            iconElement.dataset.class = _styles[icon.styles[0]] + " fa-" + key;
+            iconElement.setAttribute("data-class", _styles[icon.styles[0]] + " fa-" + key);
 
             iconElement.addEventListener('click', (e) => {
                 var iconClass = '';
                 if (e.target.nodeName === 'path') {
-                    iconClass = e.target.parentElement.dataset.class;
+                    iconClass = e.target.parentElement.getAttribute("data-class");
                 }
                 else {
-                    iconClass = e.target.dataset.class;
+                    iconClass = e.target.getAttribute("data-class");
                 }
 
                 selectedCallback(iconClass);
@@ -51,7 +51,7 @@ Manager.prototype = (function () {
             });
 
             containerElement.appendChild(iconElement);
-            if (!icon.search.terms.includes(key)) {
+            if (!icon.search.terms.indexOf(key) > -1) {
                 icon.search.terms.push(key);
             }
             nodeCount += icon.search.terms.length;
