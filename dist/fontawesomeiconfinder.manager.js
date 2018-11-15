@@ -40,7 +40,7 @@ Manager.prototype = function () {
         var iconClass = '';
 
         if (e.target.nodeName === 'path') {
-          iconClass = e.target.parentElement.getAttribute("data-class");
+          iconClass = e.target.parentNode.getAttribute("data-class");
         } else {
           iconClass = e.target.getAttribute("data-class");
         }

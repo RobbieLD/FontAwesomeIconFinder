@@ -10,9 +10,16 @@
 }
 
 .result > svg {
-    height: 3rem;
+    height: 5rem;
     padding: 1rem;
     border-radius: 0.5rem;
+}
+
+/* IE Only Hack */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .result > svg {
+        width: 5rem;
+    }
 }
 
     .selected,
