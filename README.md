@@ -1,6 +1,6 @@
 # Font Awesome Icon Finder
 Font Awesome Icon Finder is an umbraco property editor which integrates Font Awesome icons into the Umbraco back office. It provides a searchable icon grid which uses fast and eccicient trie sorting the filter the icons in real time. It is also user upgradable which allows it to use the latest versions of the icons.
-![Screen Shot](https://github.com/RobbieLD/FontAwesomeIconFinder/blob/master/docs/screen_shot.PNG)
+![Screen Shot](https://raw.githubusercontent.com/RobbieLD/FontAwesomeIconFinder/blob/master/docs/screen_shot.PNG)
 
 ## Demo
 For a live demo have a look [here](http://htmlpreview.github.io/?https://github.com/RobbieLD/FontAwesomeIconFinder/blob/master/demo/index.html).
@@ -13,7 +13,7 @@ To upgrad the icons it's using to the very latest icons from Font Awesome simply
 1. Download the icon pack from [Font Awesome](https://fontawesome.com/) for the web and extract the files. 
 2. Replace the [icons.json](src/icons.json) in this plugin (wich will be stored in \App_Plugins\FontAwesomeIconFinder\) with the icons.json from the Font Awesome download.
 
-![json file](https://github.com/RobbieLD/FontAwesomeIconFinder/blob/master/docs/install.PNG)
+![json file](https://raw.githubusercontent.com/RobbieLD/FontAwesomeIconFinder/master/docs/install.PNG)
 
 ## Compilation
 To get the required node modules for the compilationsimply run ```npm install```
