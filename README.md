@@ -15,6 +15,17 @@ To upgrad the icons it's using to the very latest icons from Font Awesome simply
 
 ![json file](https://github.com/RobbieLD/FontAwesomeIconFinder/blob/master/docs/install.PNG)
 
+## Compilation
+To get the required node modules for the compilationsimply run ```npm install```
+If you'd like to modify the source in the src directory you simply need to run the following command to build code
+```npm run build```
+This will compile the code out to the dist directory. The compilation uses babel to transform the code into a ES2015.
+
+You don't need to bother with compilation if you're only looking to support modern browsers which understand the ES2016 syntax.
+
+## Supported Browsers
+This has been tested on Chrome, Fire Fox, Edge and Internet Explorer 11.
+
 ## Trouble shooting
 There are a couple of JavaScript methods in the code which are useful should you encounter an issue. The [fontawesomeiconfinder.manager.js](src/fontawesomeiconfinder.manager.js) contains a public method `dumpTrie()` which prints a json representation of the search trie the code has consutrcted from the icons.json file. 
 ```javascript
