@@ -9,6 +9,10 @@ angular.module("umbraco").controller("fontawesomeiconfinder", function ($scope, 
     manager.handleKeyUp(e);
   }; // Setup the controls
 
+  $scope.clear = function (e) {
+    $scope.model.value = '';
+    console.log("Icon cleared");
+  }; // Setup the clear control
 
   manager.setup(function (value) {
     $scope.model.value = value;

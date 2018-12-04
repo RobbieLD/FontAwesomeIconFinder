@@ -1,4 +1,4 @@
-﻿angular.module("umbraco").controller("fontawesomeiconfinder",
+angular.module("umbraco").controller("fontawesomeiconfinder",
     function ($scope, $element) {
 
         const iconsDataUrl = '/App_Plugins/FontAwesomeIconFinder/icons.json';
@@ -9,6 +9,12 @@
         // Hook up the key event
         $scope.keyup = (e) => {
             manager.handleKeyUp(e);
+        };
+
+        // Hook up the clear button click event
+        $scope.clear = function (e) {
+            $scope.model.value = '';
+            console.log("Icon cleared");
         };
 
         // Setup the controls
