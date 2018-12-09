@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>FontAwesomeIconFinder</id>
-    <version>1.0.2</version>
+    <version>1.1.0</version>
     <authors>Rob Davis</authors>
     <owners>Rob Davis</owners>
     <licenseUrl>https://raw.githubusercontent.com/RobbieLD/FontAwesomeIconFinder/master/LICENSE</licenseUrl>
@@ -19,6 +19,7 @@
     <file src="dist/fontawesomeiconfinder.css" target="Content/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.css" />
     <file src="dist/fontawesomeiconfinder.html" target="Content/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.html" />
     <file src="dist/fontawesomeiconfinder.manager.js" target="Content/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.manager.js" />
+    <file src="dist/fontawesomeiconfinder.node.js" target="Content/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.node.js" />
     <file src="dist/fontawesomeiconfinder.trie.js" target="Content/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.trie.js" />
     <file src="dist/icons.json" target="Content/App_Plugins/FontAwesomeIconFinder/icons.json" />
     <file src="dist/package.manifest" target="Content/App_Plugins/FontAwesomeIconFinder/package.manifest" />
