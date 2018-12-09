@@ -1,7 +1,8 @@
-function Manager(container) {
-
-    this.container = container;
-    this.trie = new Trie();
+class Manager {
+    constructor(container) {
+        this.container = container;
+        this.trie = new Trie();
+    }
 }
 
 Manager.prototype = (function () {
@@ -64,7 +65,7 @@ Manager.prototype = (function () {
 
     // Public Methods
     function dumpTrie() {
-        console.log(JSON.stringify(this.trie.root, this.trie.replacer));
+        console.log(JSON.stringify(this.trie.root(), this.trie.replacer));
     }
 
     function handleKeyUp(e) {

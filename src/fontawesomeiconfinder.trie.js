@@ -1,4 +1,8 @@
-function Trie() {
+class Trie {
+    constructor() {
+        this.root = new Node();
+        this.currentNode = null;
+    }
 }
 
 Trie.prototype = (function () {
@@ -21,10 +25,6 @@ Trie.prototype = (function () {
             };
         }
     }
-
-    // Instance varaibles
-    var root = new Node();
-    var currentNode = null;
 
     // Prive methods
     function _nodeToString(prefix) {
@@ -152,7 +152,7 @@ Trie.prototype = (function () {
         icon.activeNodes = [];
 
         for (var index in words) {
-            root.addWord(words[index].toLowerCase(), icon);
+            this.root.addWord(words[index].toLowerCase(), icon);
         }
     }
 
@@ -183,6 +183,10 @@ Trie.prototype = (function () {
 
         var t1 = performance.now();
         console.log("Refining finished in " + (t1 - t0) + "ms");
+    }
+
+    function getRoot() {
+        return this.root;
     }
 
     function filter(word) {
@@ -232,8 +236,7 @@ Trie.prototype = (function () {
         filter: filter,
         addWords: addWords,
         toString: toString,
-        root: root,
-        currentNode: currentNode,
+        root: getRoot,
         replacer: replacer,
         refine: refine
     };
