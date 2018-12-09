@@ -8,34 +8,7 @@ class Trie {
 Trie.prototype = (function () {
     'use strict';
 
-    // Node Object methods
-    class Node {
-        constructor(text) {
-            this.text = text;
-            this.children = {};
-            this.parent = null;
-            this.icons = [];
-            this.addWord = _nodeAddWord;
-            this.filter = _nodeFilter;
-            this.printPath = _nodePrintPath;
-            this.findLeaves = _nodeFindLeaves;
-            this.toString = _nodeToString;
-            this.isRoot = () => {
-                return this.parent === null;
-            };
-        }
-    }
-
     // Prive methods
-    function _nodeToString(prefix) {
-        console.log(prefix + (this.text || 'root'));
-
-        for (var index in this.children) {
-            prefix += "-";
-            this.children[index].toString(prefix);
-        }
-    }
-
     function _hide(node) {
         for (var index in node.icons) {
             var icon = node.icons[index];
@@ -63,89 +36,6 @@ Trie.prototype = (function () {
             node.icons[index].classList.remove('hidden');
         }
     };
-
-    function _nodeFindLeaves(func, foundKey) {
-
-        if (this.icons.length > 0) {
-            // this is a valid path even if it doesn't end in a leaf
-            func(this);
-
-            // This is a debugging line. It will impact performance heavily. Dont use in production
-            //this.printPath();
-        }
-
-        if (this.children) {
-            for (var index in this.children) {
-                if ((foundKey && index !== foundKey) || !foundKey) {
-                    this.children[index].findLeaves(func);
-                }
-            }
-        }
-    }
-
-    function _nodePrintPath(path) {
-        var currentPath = "";
-        
-        if (!this.isRoot()) {
-            currentPath = this.text + currentPath;
-        }        
-
-        if (path) {
-            currentPath = currentPath + path;
-        }
-
-        if (this.parent) {
-            this.parent.printPath(currentPath);
-        }
-        else {
-            console.log(currentPath);
-        }
-    }
-
-    function _nodeFilter(word) {
-        if (word[0] === this.text || this.isRoot()) {
-            if (word.length === 1 && !this.isRoot()) {
-                this.findLeaves(_show);
-            } else {
-                if (this.children)
-                {
-                    for (var index in this.children) {
-                        var newWord = this.isRoot() ? word : word.substring(1);
-                        this.children[index].filter(newWord);
-                    }
-                }
-                else {
-                    this.findLeaves(_show);
-                }
-            }
-        }
-    }
-
-    function _nodeAddWord(word, icon) {
-        if (!word) {
-            icon.activeNodes.push(this);
-            this.icons.push(icon);
-            return;
-        }
-
-        var nextChild = this.children ? this.children[word[0]] : null;
-
-        // we've found the next child 
-        if (nextChild) {
-            nextChild.addWord(word.substring(1), icon);
-        }
-        else {
-            var newChild = new Node(word[0]);
-            newChild.parent = this;
-            
-            if (!this.children) {
-                this.children = {};
-            }
-
-            this.children[word[0]] = newChild;
-            newChild.addWord(word.substring(1), icon);
-        }
-    }
 
     // Public Methods
     function addWords(words, icon) {
