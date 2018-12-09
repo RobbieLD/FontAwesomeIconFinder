@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>fontawesomeiconfinder.controller.js</guid>
+      <orgPath>/App_Plugins/FontAwesomeIconFinder</orgPath>
+      <orgName>fontawesomeiconfinder.controller.js</orgName>
+    </file>
+    <file>
+      <guid>fontawesomeiconfinder.css</guid>
+      <orgPath>/App_Plugins/FontAwesomeIconFinder</orgPath>
+      <orgName>fontawesomeiconfinder.css</orgName>
+    </file>
+    <file>
+      <guid>fontawesomeiconfinder.html</guid>
+      <orgPath>/App_Plugins/FontAwesomeIconFinder</orgPath>
+      <orgName>fontawesomeiconfinder.html</orgName>
+    </file>
+    <file>
+      <guid>fontawesomeiconfinder.node.js</guid>
+      <orgPath>/App_Plugins/FontAwesomeIconFinder</orgPath>
+      <orgName>fontawesomeiconfinder.node.js</orgName>
+    </file>
+    <file>
+      <guid>fontawesomeiconfinder.manager.js</guid>
+      <orgPath>/App_Plugins/FontAwesomeIconFinder</orgPath>
+      <orgName>fontawesomeiconfinder.manager.js</orgName>
+    </file>
+    <file>
+      <guid>fontawesomeiconfinder.trie.js</guid>
+      <orgPath>/App_Plugins/FontAwesomeIconFinder</orgPath>
+      <orgName>fontawesomeiconfinder.trie.js</orgName>
+    </file>
+    <file>
+      <guid>icons.json</guid>
+      <orgPath>/App_Plugins/FontAwesomeIconFinder</orgPath>
+      <orgName>icons.json</orgName>
+    </file>
+    <file>
+      <guid>package.manifest</guid>
+      <orgPath>/App_Plugins/FontAwesomeIconFinder</orgPath>
+      <orgName>package.manifest</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>FontAwesomeIconFinder</name>
+      <version>1.1.0</version>
+      <iconUrl>https://raw.githubusercontent.com/RobbieLD/FontAwesomeIconFinder/master/icon_128x128.png</iconUrl>
+      <license url="http://opensource.org/licenses/MIT">MIT License</license>
+      <url>https://github.com/RobbieLD/FontAwesomeIconFinder/</url>
+      <requirements type="strict">
+        <major>7</major>
+        <minor>12</minor>
+        <patch>3</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Rob Davis</name>
+      <website>https://github.com/RobbieLD</website>
+    </author>
+    <readme><![CDATA[Introduction
+
+Font Awesome Icon Finder is an umbraco property editor which integrates Font Awesome icons into the Umbraco back office. It provides a searchable icon grid which uses fast and eccicient trie sorting to filter the icons in real time. It is also user upgradable which allows it to use the latest versions of the icons.
+
+
+
+Usage
+
+Using this property editor is quite simple. Simply add it to a document type in umbraco and the try editing the property in the back office. You can type in the search box to refine the icons options or press enter to search from the start again. The value persisted to the umbraco database is a string (which is also displayed in the property editor to the right of the search box) containing the css class which needs to be applied to an element (usually a <i>) to make it dispay the selected icon. Clicking on an icon in the result view changes the selected icon.
+
+
+
+Upgrading Icons	
+
+To upgrad the icons it's using to the very latest icons from Font Awesome simply do the following. The current version of the font awesome icons is v5.5.0.
+
+Download the icon pack from https://fontawesome.com/ for the web and extract the files.
+Replace the icons.json in this plugin (wich will be stored in \App_Plugins\FontAwesomeIconFinder) with the icons.json from the Font Awesome download.]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+</umbPackage>
