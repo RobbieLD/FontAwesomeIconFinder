@@ -11,7 +11,7 @@
         }
     ],
   "javascript": [
-    "~/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.loader.js",
+    "~/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.node.js",
     "~/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.manager.js",
     "~/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.trie.js",
     "~/App_Plugins/FontAwesomeIconFinder/fontawesomeiconfinder.controller.js"

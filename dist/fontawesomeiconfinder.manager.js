@@ -1,9 +1,13 @@
 "use strict";
 
-function Manager(container) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Manager = function Manager(container) {
+  _classCallCheck(this, Manager);
+
   this.container = container;
   this.trie = new Trie();
-}
+};
 
 Manager.prototype = function () {
   'use strict'; // Instance Constants
@@ -64,7 +68,7 @@ Manager.prototype = function () {
 
 
   function dumpTrie() {
-    console.log(JSON.stringify(this.trie.root, this.trie.replacer));
+    console.log(JSON.stringify(this.trie.root(), this.trie.replacer));
   }
 
   function handleKeyUp(e) {
