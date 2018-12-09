@@ -12,7 +12,7 @@
       "brands"
     ],
     "unicode": "f26e",
-    "label": "500px",
+    "label": "a",
     "svg": {
       "brands": {
         "last_modified": 1500927880000,
@@ -35,19 +35,13 @@
     ],
     "ligatures": [],
     "search": {
-      "terms": [
-        "accessibility",
-        "handicap",
-        "person",
-        "wheelchair",
-        "wheelchair-alt"
-      ]
+      "terms": []
     },
     "styles": [
       "brands"
     ],
     "unicode": "f368",
-    "label": "Accessible Icon",
+    "label": "b",
     "svg": {
       "brands": {
         "last_modified": 1502397066000,
