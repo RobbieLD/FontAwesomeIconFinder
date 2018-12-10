@@ -68,7 +68,7 @@ Manager.prototype = function () {
 
 
   function dumpTrie() {
-    console.log(JSON.stringify(this.trie.root(), this.trie.replacer));
+    console.log(JSON.stringify(this.trie.root, this.trie.replacer));
   }
 
   function handleKeyUp(e) {

@@ -2,12 +2,29 @@
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Trie = function Trie() {
-  _classCallCheck(this, Trie);
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-  this.root = new Node();
-  this.currentNode = null;
-};
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Trie =
+/*#__PURE__*/
+function () {
+  function Trie() {
+    _classCallCheck(this, Trie);
+
+    this.root = new Node();
+    this.currentNode = null;
+  }
+
+  _createClass(Trie, [{
+    key: "root",
+    get: function get() {
+      return this.root;
+    }
+  }]);
+
+  return Trie;
+}();
 
 Trie.prototype = function () {
   'use strict'; // Prive methods
@@ -77,10 +94,6 @@ Trie.prototype = function () {
     console.log("Refining finished in " + (t1 - t0) + "ms");
   }
 
-  function getRoot() {
-    return this.root;
-  }
-
   function filter(word) {
     var t0 = performance.now();
     word = word.toLowerCase(); // Hide every thing and filter it later
@@ -128,7 +141,6 @@ Trie.prototype = function () {
     filter: filter,
     addWords: addWords,
     toString: toString,
-    root: getRoot,
     replacer: replacer,
     refine: refine
   };

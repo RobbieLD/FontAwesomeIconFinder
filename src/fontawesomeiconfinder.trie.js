@@ -3,9 +3,13 @@ class Trie {
         this.root = new Node();
         this.currentNode = null;
     }
+
+    get root() {
+        return this.root;
+    }
 }
 
-Trie.prototype = (function () {
+Trie.prototype = (() => {
     'use strict';
 
     // Prive methods
@@ -75,10 +79,6 @@ Trie.prototype = (function () {
         console.log("Refining finished in " + (t1 - t0) + "ms");
     }
 
-    function getRoot() {
-        return this.root;
-    }
-
     function filter(word) {
         var t0 = performance.now();
         word = word.toLowerCase();
@@ -126,7 +126,6 @@ Trie.prototype = (function () {
         filter: filter,
         addWords: addWords,
         toString: toString,
-        root: getRoot,
         replacer: replacer,
         refine: refine
     };

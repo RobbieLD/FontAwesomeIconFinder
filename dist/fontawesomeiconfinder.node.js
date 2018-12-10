@@ -4,22 +4,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 // Node Object methods
 var Node = function Node(text) {
-  var _this = this;
-
   _classCallCheck(this, Node);
 
   this.text = text;
   this.children = {};
   this.parent = null;
   this.icons = [];
-
-  this.isRoot = function () {
-    return _this.parent === null;
-  };
 };
 
 Node.prototype = function () {
-  'use strict'; // Public Methods
+  'use strict'; // Private Methods
+
+  function isRoot() {
+    return this.parent === null;
+  } // Public Methods
+
 
   function toString(prefix) {
     console.log(prefix + (this.text || 'root'));

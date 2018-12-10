@@ -5,14 +5,16 @@
             this.children = {};
             this.parent = null;
             this.icons = [];
-            this.isRoot = () => {
-                return this.parent === null;
-            };
         }
     }
 
-    Node.prototype = (function () {
+    Node.prototype = (() => {
         'use strict';
+
+        // Private Methods
+        function isRoot() {
+            return this.parent === null;
+        }
 
         // Public Methods
         function toString(prefix) {

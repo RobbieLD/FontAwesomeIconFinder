@@ -5,7 +5,7 @@ class Manager {
     }
 }
 
-Manager.prototype = (function () {
+Manager.prototype = (() => {
     'use strict';
 
     // Instance Constants
@@ -65,7 +65,7 @@ Manager.prototype = (function () {
 
     // Public Methods
     function dumpTrie() {
-        console.log(JSON.stringify(this.trie.root(), this.trie.replacer));
+        console.log(JSON.stringify(this.trie.root, this.trie.replacer));
     }
 
     function handleKeyUp(e) {
@@ -84,7 +84,6 @@ Manager.prototype = (function () {
     }
 
     function setup(selectedCallback, url) {
-
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = () => {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
