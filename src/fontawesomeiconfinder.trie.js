@@ -1,6 +1,6 @@
 class Trie {
     constructor() {
-        this.root = new Node();
+        this.root = new FaifNode();
         this.currentNode = null;
     }
 

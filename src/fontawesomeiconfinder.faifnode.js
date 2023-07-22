@@ -1,5 +1,5 @@
     // Node Object methods
-    class Node {
+    class FaifNode {
         constructor(text) {
             this.text = text;
             this.children = {};
@@ -8,7 +8,7 @@
         }
     }
 
-    Node.prototype = (() => {
+    FaifNode.prototype = (() => {
         'use strict';
 
         // Private Methods
@@ -97,7 +97,7 @@
                 nextChild.addWord(word.substring(1), icon);
             }
             else {
-                var newChild = new Node(word[0]);
+                var newChild = new FaifNode(word[0]);
                 newChild.parent = this;
                 
                 if (!this.children) {
