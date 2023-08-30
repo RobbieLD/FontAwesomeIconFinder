@@ -1,29 +1,27 @@
 class Manager {
     constructor(container) {
         this.container = container;
-        this.trie = new Trie();
+        this._trie = new Trie();
+        this._styles = {
+            "brands": "fab",
+            "solid": "fas",
+            "light": "fal",
+            "regular": "far"
+        };
     }
-}
 
-Manager.prototype = (() => {
-    'use strict';
-
-    // Instance Constants
-    const _styles = {
-        "brands": "fab",
-        "solid": "fas",
-        "light": "fal",
-        "regular": "far"
-    };
+    get trie() {
+        return this._trie;
+    }
 
     // Private Methods
-    function _createIconNode(html) {
+    #_createIconNode(html) {
         var parser = new DOMParser();
         var doc = parser.parseFromString(html, "image/svg+xml");
         return doc.firstChild;
     }
 
-    function _loadIcons(icons, selectedCallback, parentElement, trie) {
+    #_loadIcons(icons, selectedCallback, parentElement, trie) {
         var iconCount = 0;
         var nodeCount = 0;
         var t0 = performance.now();
@@ -33,10 +31,10 @@ Manager.prototype = (() => {
             iconCount++;
             var icon = icons[key];
             var rawHtml = icon.svg[icon.styles[0]].raw;
-            var iconElement = _createIconNode(rawHtml);
+            var iconElement = this.#_createIconNode(rawHtml);
 
             // set the icon data class 
-            iconElement.setAttribute("data-class", _styles[icon.styles[0]] + " fa-" + key);
+            iconElement.setAttribute("data-class", this._styles[icon.styles[0]] + " fa-" + key);
 
             iconElement.addEventListener('click', (e) => {
                 var iconClass = '';
@@ -64,11 +62,11 @@ Manager.prototype = (() => {
     }
 
     // Public Methods
-    function dumpTrie() {
+    dumpTrie() {
         console.log(JSON.stringify(this.trie.root, this.trie.replacer));
     }
 
-    function handleKeyUp(e) {
+    handleKeyUp(e) {
         var key = e.key.toLowerCase();
 
         // Enter, delete or backspace we need to do a full filter of the trie
@@ -76,29 +74,23 @@ Manager.prototype = (() => {
             this.trie.filter(e.target.value);
         }
         else {
-            
+
             if (key.length === 1) {
                 this.trie.refine(key);
             }
         }
     }
 
-    function setup(selectedCallback, url) {
+    setup(selectedCallback, url) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = () => {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var json = JSON.parse(xmlhttp.responseText);
-                _loadIcons(json, selectedCallback, this.container, this.trie);
+                this.#_loadIcons(json, selectedCallback, this.container, this.trie);
             }
         };
 
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
     }
-
-    return {
-        setup: setup,
-        handleKeyUp: handleKeyUp,
-        dumpTrie: dumpTrie
-    };
-})();
+}

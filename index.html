@@ -5,7 +5,7 @@
         <title>Font Awesome Icon Finder Demo</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="dist/fontawesomeiconfinder.css">
+        <link rel="stylesheet" href="src/fontawesomeiconfinder.css">
         <script async src="https://ackee.robdavis.dev/tracker.js" data-ackee-server="https://ackee.robdavis.dev" data-ackee-domain-id="ea81c29b-25a1-42a7-afa2-853fc975f7bd"></script>
         <!-- Using Bulma.io for some quick and easy stlying -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
@@ -51,18 +51,15 @@
             
             fireWhenReady(function() {
                 // hijack console.log 
-                console.olog = console.log;
                 console.log = function(message) {
                     var div = document.createElement('div');
                     var log = document.getElementById("log");
                     div.innerHTML = message;
                     log.prepend(div);
                     log.scrollTop = log.scrollHeight;
-                    console.olog(message);
                 };
                 
                 console.log('<b>Welcome to the Font Awesome Icon Finder Demo. This console will log out information about the search performance. To get started, type something in the serarch field and notice how the icons are filterd. If you press enter the search is performed on the entire word, not just refined on the last letter you typed. Click on one of the icons to see it\'s data printed to the log. It is this data which will be persisted to the umbraco database</b>');
-                
                 const url = 'https://raw.githubusercontent.com/RobbieLD/FontAwesomeIconFinder/master/src/icons.json';
                 
                 // Create the manager

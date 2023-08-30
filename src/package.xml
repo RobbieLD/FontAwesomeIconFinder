@@ -17,9 +17,9 @@
       <orgName>fontawesomeiconfinder.html</orgName>
     </file>
     <file>
-      <guid>fontawesomeiconfinder.node.js</guid>
+      <guid>fontawesomeiconfinder.faifnode.js</guid>
       <orgPath>/App_Plugins/FontAwesomeIconFinder</orgPath>
-      <orgName>fontawesomeiconfinder.node.js</orgName>
+      <orgName>fontawesomeiconfinder.faifnode.js</orgName>
     </file>
     <file>
       <guid>fontawesomeiconfinder.manager.js</guid>
@@ -45,7 +45,7 @@
   <info>
     <package>
       <name>FontAwesomeIconFinder</name>
-      <version>1.1.0</version>
+      <version>1.1.2</version>
       <iconUrl>https://raw.githubusercontent.com/RobbieLD/FontAwesomeIconFinder/master/icon_128x128.png</iconUrl>
       <license url="http://opensource.org/licenses/MIT">MIT License</license>
       <url>https://github.com/RobbieLD/FontAwesomeIconFinder/</url>
